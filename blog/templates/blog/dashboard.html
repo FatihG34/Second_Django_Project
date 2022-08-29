@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %} {% block container %}
+<h1>Home Page</h1>
+
+<h3>Blog App</h3>
+<div class="container d-flex flex-wrap gap-5">
+  {% for blog in blogs %}
+  <div class="card" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="{{blog.blog_pic.url}}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{blog.title}}</h5>
+      <p class="text-muted">{{blog.created_date}}</p>
+      <p class="card-text">{{blog.description|truncatechars:50}}</p>
+      <a href="#" class="btn btn-primary">Detail</a>
+    </div>
+  </div>
+
+  {%endfor%}
+</div>
+
+{% endblock container %}
